@@ -32,6 +32,8 @@ if (wiki.response.status != 200){
   ))
 }
 
+# upload raw response from api into s3
+
 RAW_LOCATION_BASE='data/raw-views'
 dir.create(file.path(RAW_LOCATION_BASE), showWarnings = TRUE, recursive = TRUE)
 
@@ -64,7 +66,7 @@ put_object(file = raw.output.fullpath,
            bucket = BUCKET,
            verbose = TRUE)
 
-
+# transform raw response to json
 
 wiki.response.parsed = content(wiki.server.response, 'parsed')
 top.views = wiki.response.parsed$items[[1]]$articles
@@ -88,7 +90,7 @@ for (page in top.views){
                      sep='')
 }
 
-# Save the Top Edits JSON lines as a file and upload it to S3
+# Save the Top views JSON lines as a file and upload it to S3
 
 JSON_LOCATION_BASE='data/views'
 dir.create(file.path(JSON_LOCATION_BASE), showWarnings = TRUE)
