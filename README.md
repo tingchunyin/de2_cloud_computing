@@ -1,3 +1,2 @@
-# Student ID 2204502
-
-## AWS bucket name ceu-tingchunyin
+# MY STUDENT ID: 2204502
+# MY S3 BUCKET: ceu-tingchunyin
